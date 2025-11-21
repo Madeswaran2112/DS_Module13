@@ -1,80 +1,60 @@
-# Ex4 Evaluation of prefix expression
-## DATE:
-## AIM:
-To write a C function to evaluate the given prefix expression using stack and print the output of the given prefix expression from the stack inside the function . 
+# Ex4 You are given a Java program that performs matrix addition. If Matrix A has all odd numbers and Matrix B has all even numbers of the same dimension, what will be the nature (even/odd/mixed) of the resulting matrix?
+## DATE:14-08-2025
+## AI
+To write a java function to evaluate weather the given Matrix A has all odd numbers and Matrix B has all even numbers of the same dimension and find the nature of resultant matrrix.
 
 ## Algorithm
-1.start the program.
-
-2.Initialize an empty stack s with a variable top for tracking the stack index.
-
-3.Define a push() function to add an element to the stack.
-
-4.Define a pop() function to remove and return the top element from the stack.
-
-5.In evalprefix(), loop through the given prefix expression from right to left.
-
-6.For each character, if it’s an operator (+, *), pop two operands from the stack, perform the operation, and push the result.
-
-7.If it's a digit, convert it to an integer and push it onto the stack; finally, print the result after the loop ends. 8.End the program.
+1. Read matrix dimensions
+   Input the number of rows r and columns c.
+2. Read elements of Matrix A
+   Fill the 2D array A[r][c] by reading integers row-wise.
+3. Read elements of Matrix B
+   Fill the 2D array B[r][c] similarly by reading integers row-wise.
+4. Add corresponding elements of both matrices
+   For each position (i, j), compute A[i][j] + B[i][j]. 
+5. Print the resulting matrix
+   Output each sum in matrix form, one row per line.  
 
 ## Program:
 ```
 /*
-Program to evaluate the given prefix expression
+Program to ind the nature of resultant matrrix.
 Developed by: MADESWARAN M
-RegisterNumber:  212223040106
-*/
-#include<stdio.h> 
-#include<string.h> 
-#include<ctype.h> 
-int s[50]; 
-int top=0; 
-void push(int ch) 
-{ 
-top++; 
-s[top]=ch; 
-} 
- 
-int pop() 
-{ 
-int ch; 
-ch=s[top]; 
-top=top-1; 
-return(ch); 
-} 
-void evalprefix(char p[50]) 
-{ 
-int a,b,c,i; 
-for(i=strlen(p)-1;i>=0;i--) 
-{ 
-if(p[i]=='+') 
-{ 
-a=pop(); 
-b=pop(); 
-c=a+b; 
-push(c); 
-} 
-else if(p[i]=='*') 
-{ 
-a=pop(); 
-b=pop(); 
-c=a*b; 
-push(c); 
-} 
-else 
-{ 
-push(p[i]-48); 
-} 
-} 
-printf("%d",pop()); 
+Register Number: 212223040106
+
+import java.util.*;
+
+public class MatrixAddShort {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int r = sc.nextInt(), c = sc.nextInt();
+        int[][] A = new int[r][c], B = new int[r][c];
+
+        for (int i = 0; i < r; i++)  
+            for (int j = 0; j < c; j++)
+                A[i][j] = sc.nextInt();
+
+        for (int i = 0; i < r; i++)  
+            for (int j = 0; j < c; j++)
+                B[i][j] = sc.nextInt();
+
+       
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++)
+                System.out.print((A[i][j] + B[i][j]) + " ");
+            System.out.println();
+        }
+    }
 }
+
+*/
 ```
 
 ## Output:
 
-<img width="320" height="184" alt="437889128-86d2fdd6-4f8a-4548-9830-419a0c5cf59a" src="https://github.com/user-attachments/assets/f688f426-fb32-4080-b7f2-27ac9437a1a8" />
+
+<img width="451" height="704" alt="image" src="https://github.com/user-attachments/assets/4100fb70-69a4-4f08-aa17-86d01d55c951" />
 
 
 ## Result:
-Thus, the C program to evaluate the prefix expression using stack and print the output of the given prefix expression from the stack inside the function is implemented successfully.
+Thus, the java program to evaluate weather the given Matrix A has all odd numbers and Matrix B has all even numbers of the same dimension and find the nature of resultant matrrix is implemented successfully.
